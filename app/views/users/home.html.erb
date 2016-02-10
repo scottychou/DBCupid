@@ -1,0 +1,9 @@
+<h1>WELCOME TO THE HOME PAGE OF DBCupid</h1>
+
+<h2>Here is a list of user profiles for you to visit</h2> <br><br>
+
+<% @users.each do |user| %>
+<ul>
+  <li><%= link_to user.username, user_path(user)%></li>
+</ul>
+<%end%>
