@@ -37,3 +37,6 @@ gem 'bcrypt'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rspec-rails'
+gem 'faker'
+gem 'factory_girl_rails'
