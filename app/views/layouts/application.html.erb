@@ -7,7 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if flash.any?  %>
+    <div id="flash-container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "flash-#{name}" %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="welcome-bar">
+    <% if current_user %>
+       Welcome <%= current_user.username %>
+       <%= link_to 'Log out', session_path, method: :delete %>
+    <% else %>
+      <nav>
+       <%= link_to 'Log in', new_session_path %>|
+       <%= link_to 'Register', new_user_path %>
+      </nav>
+    <% end %>
+    <%= link_to 'Home', root_path %>
+  </div>
 <%= yield %>
 
 </body>
