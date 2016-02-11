@@ -7,3 +7,19 @@
 <p>Education: <%=@user.education%></p>
 <p>Diet: <%=@user.diet%></p>
 <p>Interests: <%=@user.interests%></p>
+
+<h3>Leave a Message</h3>
+  <%= form_for @new_message do |f| %>
+    <div>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :receiver_id, :value => @user.id %>
+    </div>
+  <%= f.submit %>
+<%end%>
+
+<h3>Messages on your wall:</h3><br><br><br>
+<% @received_messages.each do |message| %>
+  <div>
+    <%=message.content%> by <%=message.sender.username%>
+  </div>
+<%end%>

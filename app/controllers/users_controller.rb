@@ -21,7 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @new_message = Message.new
     @user = User.find(params[:id])
+    @received_messages = Message.where(receiver_id: params[:id])
   end
 
   def edit
